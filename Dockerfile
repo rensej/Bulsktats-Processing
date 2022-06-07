@@ -1,5 +1,5 @@
 #Build Docker Bulkstat Processor Image
-FROM mysql:8.0.25
+FROM mysql:8.0.29
 EXPOSE 3306
 ENV MYSQL_ROOT_PASSWORD="ciscomos"
 
@@ -9,7 +9,7 @@ ARG appFolder=/BS
 RUN mkdir $appFolder
 
 #Update and install JRE
-RUN mkdir /usr/share/man/man1/ && apt-get update && apt-get install -y default-jre vim
+RUN apt-get update && apt-get install -y default-jre vim
 
 #Copy application files
 COPY StarOS_CounterProcessing.jar $appFolder
